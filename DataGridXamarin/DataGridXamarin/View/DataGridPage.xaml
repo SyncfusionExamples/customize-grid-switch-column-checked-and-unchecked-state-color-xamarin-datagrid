@@ -1,0 +1,30 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:DataGridXamarin"
+             xmlns:sfgrid="clr-namespace:Syncfusion.SfDataGrid.XForms;assembly=Syncfusion.SfDataGrid.XForms"
+             x:Class="DataGridXamarin.DataGridPage">
+
+    <ContentPage.Resources>
+        <local:Customstyle x:Key="customstyle" />
+    </ContentPage.Resources>
+    
+    <ContentPage.BindingContext>
+        <local:ViewModel x:Name="viewModel"/>
+    </ContentPage.BindingContext>
+
+    <sfgrid:SfDataGrid x:Name="dataGrid" 
+                       GridStyle="{StaticResource customstyle}"
+                       AutoGenerateColumns="False"
+                       ItemsSource="{Binding OrdersInfo}">
+        <sfgrid:SfDataGrid.Columns>
+            <sfgrid:GridTextColumn MappingName="OrderID" />
+            <sfgrid:GridTextColumn MappingName="CustomerID" />
+            <sfgrid:GridTextColumn MappingName="ShipCountry" />
+            <sfgrid:GridTextColumn MappingName="Customer"  />
+            <sfgrid:GridSwitchColumn MappingName="IsClosed" />
+            <sfgrid:GridTextColumn MappingName="ShipCity"/>
+        </sfgrid:SfDataGrid.Columns>
+    </sfgrid:SfDataGrid>
+    
+</ContentPage>
